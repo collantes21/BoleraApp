@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bolos"
+    tools:context=".PantallaRegistro">
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:layout_marginBottom="56dp"
+        android:ems="10"
+        android:hint="Introduzca el usuario.."
+        android:inputType="text"
+        android:textColor="#FAF7F7"
+        android:textColorHighlight="#FAF7F7"
+        android:textColorHint="#B9FAF7F7"
+        android:textColorLink="#FAF7F7"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="63dp"
+        android:ems="10"
+        android:hint="Introduzca la contraseña.."
+        android:inputType="textPassword"
+        android:textColor="#FAF7F7"
+        android:textColorHighlight="#FAF7F7"
+        android:textColorHint="#B9FAF7F7"
+        android:textColorLink="#FAF7F7"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword3"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword3"
+        app:layout_constraintStart_toStartOf="@+id/editTextText2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword3"
+        android:layout_width="229dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="60dp"
+        android:ems="10"
+        android:hint="Confirme la contraseña.."
+        android:inputType="textPassword"
+        android:textColor="#FAF7F7"
+        android:textColorHighlight="#FAF7F7"
+        android:textColorHint="#B9FAF7F7"
+        android:textColorLink="#FAF7F7"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="256dp"
+        android:onClick="registrar"
+        android:text="Crear cuenta"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#9E1D1D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
+</androidx.constraintlayout.widget.ConstraintLayout>

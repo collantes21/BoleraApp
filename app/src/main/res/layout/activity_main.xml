@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bolos"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="348dp"
+        android:onClick="login"
+        android:text="Iniciar sesión"
+        app:backgroundTint="#9E1D1D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="348dp"
+        android:onClick="registro"
+        android:text="Registrarse"
+        app:backgroundTint="#9E1D1D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginRight="63dp"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="sans-serif"
+        android:text="   BOWLING"
+        android:textColor="#CA4242"
+        android:textSize="48sp"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="275dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="111dp"
+        android:fontFamily="sans-serif"
+        android:text="XPERIENCE"
+        android:textColor="#FAF7F7"
+        android:textSize="48sp"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
