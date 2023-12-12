@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="301dp"
+        android:onClick="entrar"
         android:text="Entrar"
         android:textColor="#FFFFFF"
         app:backgroundTint="#9E1D1D"
