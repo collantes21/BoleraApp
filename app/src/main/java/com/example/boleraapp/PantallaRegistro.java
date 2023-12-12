@@ -3,6 +3,7 @@ package com.example.boleraapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -57,7 +58,9 @@ public class PantallaRegistro extends AppCompatActivity {
         String passwordComprueba = pass2.getText().toString();
 
         if (usuarioExiste(usuario)) {
-            Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_LONG).show();
+
+            Toast.makeText(this, "El usuario ya existe, prueba con otro.", Toast.LENGTH_LONG).show();
+
         } else {
             // El usuario no existe, proceder con el registro
             long resultado = dbHelper.insertarUsuario(usuario, password);
@@ -65,10 +68,26 @@ public class PantallaRegistro extends AppCompatActivity {
             if (resultado != -1) {
                 // La inserción fue exitosa
                 Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_LONG).show();
+
+                Intent i=new Intent(this, MainActivity.class);
+
+                startActivity(i);
+
             } else {
                 // Ocurrió un error durante la inserción
                 Toast.makeText(this, "Error al registrar usuario", Toast.LENGTH_LONG).show();
+
+                Intent i=new Intent(this, MainActivity.class);
+
+                startActivity(i);
             }
         }
+    }
+
+    public void atras(View view){
+
+        Intent i=new Intent(this, MainActivity.class);
+
+        startActivity(i);
     }
 }
