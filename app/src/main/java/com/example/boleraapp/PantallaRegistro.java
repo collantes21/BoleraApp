@@ -32,12 +32,12 @@ public class PantallaRegistro extends AppCompatActivity {
     }
 
     public boolean usuarioExiste(String usuario) {
-        SQLiteDatabase db = this.getReadeableDa();
+        SQLiteDatabase db = dbHelper.getReadableDatabase(); // Corregido de getReadeableDa()
         Cursor cursor = null;
 
         try {
             // Consulta para buscar el usuario en la tabla
-            String consulta = "SELECT usuario FROM " + TABLE_USERS + " WHERE usuario = ?";
+            String consulta = "SELECT usuario FROM " + DbHelper.TABLE_USERS + " WHERE usuario = ?";
             cursor = db.rawQuery(consulta, new String[]{usuario});
 
             // Verificar si se encontró algún resultado
@@ -51,12 +51,24 @@ public class PantallaRegistro extends AppCompatActivity {
         }
     }
 
-    public void registrar(View view){
+    public void registrar(View view) {
+        String usuario = user.getText().toString();
+        String password = pass1.getText().toString();
+        String passwordComprueba = pass2.getText().toString();
 
-        String usuario=user.getText().toString();
-        String password=pass1.getText().toString();
-        String passwordComprueba=pass2.getText().toString();
+        if (usuarioExiste(usuario)) {
+            Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_LONG).show();
+        } else {
+            // El usuario no existe, proceder con el registro
+            long resultado = dbHelper.insertarUsuario(usuario, password);
 
-
+            if (resultado != -1) {
+                // La inserción fue exitosa
+                Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_LONG).show();
+            } else {
+                // Ocurrió un error durante la inserción
+                Toast.makeText(this, "Error al registrar usuario", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
