@@ -59,9 +59,31 @@ public class PantallaRegistro extends AppCompatActivity {
 
         if (usuarioExiste(usuario)) {
 
-            Toast.makeText(this, "El usuario ya existe, prueba con otro.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "El usuario ya existe, prueba con otro", Toast.LENGTH_LONG).show();
 
-        } else {
+            user.setText("");
+            pass1.setText("");
+            pass2.setText("");
+
+        } else if (usuario.equals("") || password.equals("")) {
+
+            Toast.makeText(this, "Ninguno de los campos puede estar vacio", Toast.LENGTH_LONG).show();
+
+            user.setText("");
+            pass1.setText("");
+            pass2.setText("");
+
+        } else if (!password.equals(passwordComprueba)){
+
+            Toast.makeText(this, "Las contraseñas deben coincidir", Toast.LENGTH_LONG).show();
+
+            user.setText("");
+            pass1.setText("");
+            pass2.setText("");
+
+        }
+        else {
+
             // El usuario no existe, proceder con el registro
             long resultado = dbHelper.insertarUsuario(usuario, password);
 
@@ -69,15 +91,16 @@ public class PantallaRegistro extends AppCompatActivity {
                 // La inserción fue exitosa
                 Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_LONG).show();
 
-                Intent i=new Intent(this, MainActivity.class);
+                Intent i=new Intent(this, PantallaRegistroLogin.class);
 
                 startActivity(i);
 
             } else {
+
                 // Ocurrió un error durante la inserción
                 Toast.makeText(this, "Error al registrar usuario", Toast.LENGTH_LONG).show();
 
-                Intent i=new Intent(this, MainActivity.class);
+                Intent i=new Intent(this, PantallaRegistroLogin.class);
 
                 startActivity(i);
             }
@@ -86,7 +109,7 @@ public class PantallaRegistro extends AppCompatActivity {
 
     public void atras(View view){
 
-        Intent i=new Intent(this, MainActivity.class);
+        Intent i=new Intent(this, PantallaRegistroLogin.class);
 
         startActivity(i);
     }

@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.boleraapp.db.DbHelper;
 
-public class MainActivity extends AppCompatActivity {
+public class PantallaRegistroLogin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void registro(View view){
 
-        Intent intent= new Intent(MainActivity.this, PantallaRegistro.class);
+        Intent intent= new Intent(PantallaRegistroLogin.this, PantallaRegistro.class);
 
         startActivity(intent);
 
-        DbHelper dbHelper=new DbHelper(MainActivity.this);
+        DbHelper dbHelper=new DbHelper(PantallaRegistroLogin.this);
 
         SQLiteDatabase db=dbHelper.getWritableDatabase();
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void login(View view){
 
-        Intent intent= new Intent(MainActivity.this, PantallaLogIn.class);
+        Intent intent= new Intent(PantallaRegistroLogin.this, PantallaLogIn.class);
 
         startActivity(intent);
     }

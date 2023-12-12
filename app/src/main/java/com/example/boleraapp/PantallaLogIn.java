@@ -51,7 +51,7 @@ public class PantallaLogIn extends AppCompatActivity {
 
     public void atras(View view){
 
-        Intent i=new Intent(this, MainActivity.class);
+        Intent i=new Intent(this, PantallaRegistroLogin.class);
 
         startActivity(i);
     }

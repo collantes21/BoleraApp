@@ -2,7 +2,13 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Reserva pista" />
-    <item android:title="Restaurante" />
-    <item android:title="Localizacion" />
+    <item
+        android:id="@+id/reserva"
+        android:title="Reserva" />
+    <item
+        android:id="@+id/localizacion"
+        android:title="Localizacion" />
+    <item
+        android:id="@+id/restaurante"
+        android:title="Restaurante" />
 </menu>

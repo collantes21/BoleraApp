@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bolos"
+    android:background="@drawable/pantallaprincipal"
     tools:context=".PantallaPrincipal">
 
     <androidx.appcompat.widget.Toolbar
@@ -16,10 +16,27 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:background="?attr/colorPrimary"
+        android:layout_marginBottom="22dp"
+        android:background="#9E1D1D"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="171dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="1dp"
+        android:text="En un rincón apartado de la ciudad de Valladolid, se encontraba un bolera única, conocida como &quot;Bowling Xperience&quot;. Su historia se contaba entre las risas de jugadores que buscaban un refugio lejos del ajetreo diario.  Se dice que fue construida en una época en la que el sonido del jazz reinaba en los corazones de la gente.  El dueño original, un apasionado jugador de bolos llamado Samuel &quot;El Maestro del Giro&quot;, era conocido por su destreza única en la cancha. Pocos podían igualar su habilidad para golpear los bolos justo en el punto débil. Bowling Xperience prosperó como un santuario acogedor para todos los que buscaban desafíos dentro de sus paredes."
+        android:textColor="#F3EFEF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
