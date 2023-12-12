@@ -8,7 +8,7 @@
     tools:context=".PantallaRegistro">
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="115dp"
@@ -20,13 +20,13 @@
         android:textColorHighlight="#FAF7F7"
         android:textColorHint="#B9FAF7F7"
         android:textColorLink="#FAF7F7"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+        app:layout_constraintBottom_toTopOf="@+id/pass1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/pass1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="63dp"
@@ -37,13 +37,13 @@
         android:textColorHighlight="#FAF7F7"
         android:textColorHint="#B9FAF7F7"
         android:textColorLink="#FAF7F7"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword3"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword3"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintBottom_toTopOf="@+id/pass2"
+        app:layout_constraintEnd_toEndOf="@+id/pass2"
+        app:layout_constraintStart_toStartOf="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <EditText
-        android:id="@+id/editTextTextPassword3"
+        android:id="@+id/pass2"
         android:layout_width="229dp"
         android:layout_height="0dp"
         android:layout_marginBottom="60dp"
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.554"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/pass1" />
 
     <Button
         android:id="@+id/button3"
@@ -73,6 +73,6 @@
         android:textColor="#FFFFFF"
         app:backgroundTint="#9E1D1D"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
+        app:layout_constraintStart_toStartOf="@+id/pass2"
+        app:layout_constraintTop_toBottomOf="@+id/pass2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

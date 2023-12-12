@@ -54,7 +54,7 @@
         android:textColorHighlight="#FAF7F7"
         android:textColorHint="#B9FAF7F7"
         android:textColorLink="#FAF7F7"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+        app:layout_constraintBottom_toTopOf="@+id/pass1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
