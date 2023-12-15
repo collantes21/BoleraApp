@@ -106,7 +106,10 @@ public class PantallaReservaPista1 extends AppCompatActivity {
         Intent intent = new Intent(this, PantallaReservaPistaConfirma.class);
         intent.putExtra("fecha", selectedDate);
         intent.putExtra("hora", selectedHour);
-        intent.putExtra("numPersonas", selectedNumPersonas);
+
+// Convertir la cantidad de personas a entero antes de ponerla en el intent
+        int personas = Integer.parseInt(selectedNumPersonas);
+        intent.putExtra("numPersonas", personas);
 
         startActivity(intent);
     }

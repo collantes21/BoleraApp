@@ -6,7 +6,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PantallaReservaPistaConfirma extends AppCompatActivity {
 
@@ -24,7 +26,7 @@ public class PantallaReservaPistaConfirma extends AppCompatActivity {
         Intent intent = getIntent();
         String fecha = intent.getStringExtra("fecha");
         String hora = intent.getStringExtra("hora");
-        int numPersonas = intent.getIntExtra("numPersonas", 0); // Elimina el valor por defecto
+        int numPersonas = intent.getIntExtra("numPersonas", 0);
 
 
 
@@ -32,6 +34,23 @@ public class PantallaReservaPistaConfirma extends AppCompatActivity {
         textViewHora.setText("Hora: " + hora);
         textViewPersonas.setText("Num. Personas: " + numPersonas);
 
+
+    }
+
+    public void cancelar(View view){
+
+        Intent intent=new Intent(this, PantallaPrincipal.class);
+
+        startActivity(intent);
+    }
+
+    public void confirmaReserva(View view){
+
+        Toast.makeText(this, "Reserva guardada correctamente", Toast.LENGTH_LONG).show();
+
+        Intent intent=new Intent(this, PantallaPrincipal.class);
+
+        startActivity(intent);
 
     }
 }

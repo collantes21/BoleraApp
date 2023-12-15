@@ -7,38 +7,76 @@
     android:background="@drawable/reservapista"
     tools:context=".PantallaReservaPistaConfirma">
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="124dp"
+        android:onClick="confirmaReserva"
+        android:text="Confirmar"
+        app:backgroundTint="#9E1D1D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="113dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/agenda" />
+
     <TextView
         android:id="@+id/textViewDate"
-        android:layout_width="169dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginBottom="69dp"
+        android:layout_width="283dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="205dp"
+        android:layout_marginBottom="41dp"
         android:text="TextView"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textViewHora"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewHora"
+        app:layout_constraintStart_toStartOf="@+id/textViewHora"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewHora"
-        android:layout_width="184dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="283dp"
-        android:layout_marginBottom="65dp"
+        android:layout_width="279dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="37dp"
         android:text="TextView"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textViewPersonas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textViewPersonas"
+        app:layout_constraintStart_toStartOf="@+id/textViewPersonas"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
 
     <TextView
         android:id="@+id/textViewPersonas"
-        android:layout_width="180dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="210dp"
+        android:layout_width="276dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="364dp"
         android:text="TextView"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHora" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="124dp"
+        android:onClick="cancelar"
+        android:text="Cancelar"
+        app:backgroundTint="#9E1D1D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
