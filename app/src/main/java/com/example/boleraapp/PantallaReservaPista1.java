@@ -32,8 +32,8 @@ public class PantallaReservaPista1 extends AppCompatActivity {
         calendarView = findViewById(R.id.calendarView);
         btHora = findViewById(R.id.btHora);
         numPersonas=findViewById(R.id.numPersonas);
-        etHora = findViewById(R.id.etHora); // Agregado: EditText para mostrar la hora seleccionada
-
+        etHora = findViewById(R.id.etHora);
+        etHora.setEnabled(false);
         btHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +58,7 @@ public class PantallaReservaPista1 extends AppCompatActivity {
 
     }
 
-    // Método para establecer la fecha con el TimePickerDialog
+    // Método para establecer la hora con el TimePickerDialog
     public void establecerFecha(View view) {
         if (view == btHora) {
             final Calendar horario = Calendar.getInstance();
@@ -70,7 +70,7 @@ public class PantallaReservaPista1 extends AppCompatActivity {
                         @Override
                         public void onTimeSet(TimePicker timePicker, int i, int i1) {
                             // Actualizar el EditText con la hora seleccionada
-                            etHora.setText(String.format("%02d:%02d", i, i1));
+                            etHora.setText(String.format("          %02d:%02d", i, i1));
                         }
                     }, hora, minuto, false);
 

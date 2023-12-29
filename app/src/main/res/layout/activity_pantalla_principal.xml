@@ -4,8 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pantallaprincipal"
+    android:background="@drawable/bolos"
     tools:context=".PantallaPrincipal">
+
+    <Button
+        android:id="@+id/btreservar"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="149dp"
+        android:layout_marginRight="149dp"
+        android:layout_marginBottom="257dp"
+        android:onClick="reservar"
+        android:text="Reservar"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#9E1D1D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -16,7 +32,7 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="65dp"
         android:background="#9E1D1D"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -27,16 +43,44 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="171dp"
+        android:layout_width="130dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="1dp"
-        android:text="En un rincón apartado de la ciudad de Valladolid, se encontraba un bolera única, conocida como &quot;Bowling Xperience&quot;. Su historia se contaba entre las risas de jugadores que buscaban un refugio lejos del ajetreo diario.  Se dice que fue construida en una época en la que el sonido del jazz reinaba en los corazones de la gente.  El dueño original, un apasionado jugador de bolos llamado Samuel &quot;El Maestro del Giro&quot;, era conocido por su destreza única en la cancha. Pocos podían igualar su habilidad para golpear los bolos justo en el punto débil. Bowling Xperience prosperó como un santuario acogedor para todos los que buscaban desafíos dentro de sus paredes."
-        android:textColor="#F3EFEF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="13dp"
+        android:text="RESERVA"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginBottom="17dp"
+        android:text=" AQUI TU"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="170dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginRight="104dp"
+        android:layout_marginBottom="142dp"
+        android:text="EXPERIENCIA"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/btreservar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

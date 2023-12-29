@@ -3,12 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/reserva"
-        android:title="Reserva" />
-    <item
         android:id="@+id/localizacion"
         android:title="Localizacion" />
     <item
-        android:id="@+id/restaurante"
-        android:title="Restaurante" />
+        android:id="@+id/historial"
+        android:title="Historial" />
 </menu>

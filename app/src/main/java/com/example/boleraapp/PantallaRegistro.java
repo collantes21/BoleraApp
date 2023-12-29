@@ -56,7 +56,7 @@ public class PantallaRegistro extends AppCompatActivity {
         String usuario = user.getText().toString();
         String password = pass1.getText().toString();
         String passwordComprueba = pass2.getText().toString();
-
+        //Validaciones en la pantalla de registro
         if (usuarioExiste(usuario)) {
 
             Toast.makeText(this, "El usuario ya existe, prueba con otro", Toast.LENGTH_LONG).show();
