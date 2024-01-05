@@ -29,24 +29,20 @@ public class PantallaLogIn extends AppCompatActivity {
     }
 
     public void entrar(View view){
-
-        String usuario=userVerifica.getText().toString();
-
-        String contrasena=passVerifica.getText().toString();
+        String usuario = userVerifica.getText().toString();
+        String contrasena = passVerifica.getText().toString();
 
         if (dbHelper.verificarCredenciales(usuario, contrasena)){
+            // Establecer el usuario actual en SessionManager
+            SessionManager.getInstance().setCurrentUsuario(usuario);
 
-            Intent intent= new Intent(PantallaLogIn.this, PantallaPrincipal.class);
-
+            Intent intent = new Intent(PantallaLogIn.this, PantallaPrincipal.class);
             startActivity(intent);
         } else {
-
             Toast.makeText(this, "Usuario o contraseña incorrecto.", Toast.LENGTH_LONG).show();
-
             userVerifica.setText("");
             passVerifica.setText("");
         }
-
     }
 
     public void atras(View view){

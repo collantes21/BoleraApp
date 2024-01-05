@@ -13,6 +13,9 @@
         android:theme="@style/Theme.BoleraApp"
         tools:targetApi="31">
         <activity
+            android:name=".PantallaEditReserva"
+            android:exported="false" />
+        <activity
             android:name=".PantallaHistorial"
             android:exported="false" />
         <!--

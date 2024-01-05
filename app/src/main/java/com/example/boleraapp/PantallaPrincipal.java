@@ -12,11 +12,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class PantallaPrincipal extends AppCompatActivity {
 
     Button btreservar;
     MediaPlayer mediaPlayer;
+    private TextView usuario;
+
+    private String fecha, hora;
+    private int numPersonas;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -25,9 +30,17 @@ public class PantallaPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_principal);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        usuario=findViewById(R.id.usuario);
         btreservar=findViewById(R.id.btreservar);
         iniciarReproduccion();
+
+        String usuarioActual = SessionManager.getInstance().getCurrentUsuario();
+
+        //Mostrar nombre de usuario en el textView
+        usuario.setText("Hola " + usuarioActual + " ya puedes realizar tu reserva.");
     }
+
+
     @Override
     protected void onDestroy() {
         // Libera los recursos del MediaPlayer al destruir la actividad
@@ -54,6 +67,7 @@ public class PantallaPrincipal extends AppCompatActivity {
 
         Intent intent = new Intent(this, PantallaReservaPista.class);
 
+
         startActivity(intent);
     }
 
@@ -62,7 +76,8 @@ public class PantallaPrincipal extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.historial) {
 
-            Intent intent = new Intent(this, PantallaRegistroLogin.class);
+            Intent intent = new Intent(this, PantallaHistorial.class);
+
 
             startActivity(intent);
 

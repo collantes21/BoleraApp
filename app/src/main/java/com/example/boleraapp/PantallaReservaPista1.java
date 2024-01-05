@@ -34,6 +34,7 @@ public class PantallaReservaPista1 extends AppCompatActivity {
         numPersonas=findViewById(R.id.numPersonas);
         etHora = findViewById(R.id.etHora);
         etHora.setEnabled(false);
+
         btHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,10 +107,10 @@ public class PantallaReservaPista1 extends AppCompatActivity {
         Intent intent = new Intent(this, PantallaReservaPistaConfirma.class);
         intent.putExtra("fecha", selectedDate);
         intent.putExtra("hora", selectedHour);
-
-// Convertir la cantidad de personas a entero antes de ponerla en el intent
+        // Convertir la cantidad de personas a entero antes de ponerla en el intent
         int personas = Integer.parseInt(selectedNumPersonas);
         intent.putExtra("numPersonas", personas);
+
 
         startActivity(intent);
     }

@@ -1,25 +1,39 @@
 package com.example.boleraapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.boleraapp.db.DbHelper;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Locale;
 
 public class PantallaReservaPistaConfirma extends AppCompatActivity {
 
     private TextView textViewDate, textViewHora, textViewPersonas;
+    private String identificadorReserva;
+    private DbHelper dbHelper;
+
+    private String fecha, hora;
+    private int numPersonas;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_reserva_pista_confirma);
         // Actualizar TextView con los datos recogidos
@@ -27,59 +41,21 @@ public class PantallaReservaPistaConfirma extends AppCompatActivity {
         textViewPersonas = findViewById(R.id.textViewPersonas);
         textViewDate = findViewById(R.id.textViewDate);
 
+        // Inicializar DbHelper
+        dbHelper = new DbHelper(this);
+
+
+        String usuarioActual = SessionManager.getInstance().getCurrentUsuario();
+
         Intent intent = getIntent();
         String fecha = intent.getStringExtra("fecha");
         String hora = intent.getStringExtra("hora");
         int numPersonas = intent.getIntExtra("numPersonas", 0);
 
-
-
         textViewDate.setText("Fecha:    " + fecha);
         textViewHora.setText("Hora:   " + hora);
-        textViewPersonas.setText("Num. Personas:        " + numPersonas);
+        textViewPersonas.setText("Num. Personas:        " + numPersonas + " " + usuarioActual);
 
-
-        // Obtener y guardar el valor del identificador y el contador
-        int contadorReservas;
-        String identificadorReserva;
-
-        SharedPreferences sharedPreferences = getSharedPreferences("Reservas", MODE_PRIVATE);
-        contadorReservas = sharedPreferences.getInt("contador", 0);
-        identificadorReserva = generarIdentificador(contadorReservas);
-
-        // Almacenar datos en SharedPreferences
-        guardarReserva(sharedPreferences, identificadorReserva, numPersonas);
-
-        // Incrementar el contador y guardar el nuevo valor
-        contadorReservas++;
-        guardarContadorReservas(sharedPreferences, contadorReservas);
-
-    }
-
-    private String generarIdentificador(int contador) {
-        // Formatear el contador como un identificador único
-        return String.format(Locale.getDefault(), "%03d", contador);
-    }
-
-    private void guardarContadorReservas(SharedPreferences sharedPreferences, int contador) {
-        // Almacenar el nuevo valor del contador en SharedPreferences
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("contador", contador);
-        editor.apply();
-    }
-
-    private void guardarReserva(SharedPreferences sharedPreferences, String identificadorReserva, int numPersonas) {
-        // Obtener un editor para realizar cambios
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        // Obtener el número total de reservas para este identificador
-        int reservasAnteriores = sharedPreferences.getInt(identificadorReserva, 0);
-
-        // Incrementar el número de reservas y almacenar el valor actualizado
-        editor.putInt(identificadorReserva, reservasAnteriores + numPersonas);
-
-        // Aplicar los cambios
-        editor.apply();
     }
 
     public void aceptarSuspension() {
@@ -106,7 +82,6 @@ public class PantallaReservaPistaConfirma extends AppCompatActivity {
         dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 aceptarSuspension();
-
                 startActivity(intent);
             }
         });
@@ -123,11 +98,29 @@ public class PantallaReservaPistaConfirma extends AppCompatActivity {
 
     public void confirmaReserva(View view){
 
-        Toast.makeText(this, "Reserva guardada correctamente", Toast.LENGTH_LONG).show();
+        Intent intent = getIntent();
 
-        Intent intent=new Intent(this, PantallaPrincipal.class);
+        // Obtén los datos de la reserva
+        String usuario = SessionManager.getInstance().getCurrentUsuario();
+        String fecha = intent.getStringExtra("fecha");
+        String hora = intent.getStringExtra("hora");
 
-        startActivity(intent);
+        int numPersonas = intent.getIntExtra("numPersonas", 0);
+
+        // Insertar la reserva en la base de datos
+        long resultadoInsercion = dbHelper.insertarReserva(usuario, fecha, hora, numPersonas);
+
+        Log.d("DEBUG", "Resultado de la inserción: " + resultadoInsercion);
+
+        if (resultadoInsercion != -1) {
+            Toast.makeText(this, "Reserva guardada en la base de datos", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Error al guardar la reserva en la base de datos", Toast.LENGTH_SHORT).show();
+        }
+
+        // Finalmente, inicia la actividad de la pantalla principal
+        Intent intentPantallaPrincipal = new Intent(this, PantallaPrincipal.class);
+        startActivity(intentPantallaPrincipal);
 
     }
 }
