@@ -64,12 +64,36 @@ public class PantallaHistorial extends AppCompatActivity {
         listViewReservas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Obtener el texto del elemento seleccionado
-                String selectedReserva = (String) parent.getItemAtPosition(position);
+                // Obtener los datos de la reserva seleccionada
+                Cursor cursor = dbHelper.obtenerReservasUsuario(usuarioActual);
+                cursor.moveToPosition(position);
+                int numReserva = cursor.getInt(cursor.getColumnIndex("numReserva"));
+                String fecha = cursor.getString(cursor.getColumnIndex("fecha"));
+                String hora = cursor.getString(cursor.getColumnIndex("hora"));
+                int numPersonas = cursor.getInt(cursor.getColumnIndex("numPersonas"));
 
-                // Mostrar un mensaje de prueba (puedes cambiar esto por abrir otra actividad)
-                Toast.makeText(getApplicationContext(), "Reserva seleccionada: " + selectedReserva, Toast.LENGTH_SHORT).show();
+                // Crear un Intent para iniciar PantallaEditReserva
+                Intent intent = new Intent(PantallaHistorial.this, PantallaEditReserva.class);
+
+                // Poner los datos de la reserva en el Intent
+                intent.putExtra("numReserva", numReserva);
+                intent.putExtra("fecha", fecha);
+                intent.putExtra("hora", hora);
+                intent.putExtra("numPersonas", numPersonas);
+
+                // Cerrar el cursor
+                cursor.close();
+
+                // Iniciar PantallaEditReserva
+                startActivity(intent);
             }
         });
+    }
+
+    public void atras(View view){
+
+        Intent intent = new Intent(PantallaHistorial.this, PantallaPrincipal.class);
+
+        startActivity(intent);
     }
 }

@@ -95,6 +95,29 @@ public class DbHelper extends SQLiteOpenHelper {
             db.close();
         }
     }
+
+    // Método para modificar una reserva por número de reserva
+    public int modificarReserva(int numReserva, String fecha, String hora, int numPersonas) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("fecha", fecha);
+        values.put("hora", hora);
+        values.put("numPersonas", numPersonas);
+
+        int rowsAffected = db.update(TABLE_RESERVAS, values, "numReserva=?", new String[]{String.valueOf(numReserva)});
+        db.close();
+
+        return rowsAffected;
+    }
+
+    // Método para borrar una reserva por número de reserva
+    public int borrarReserva(int numReserva) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int rowsAffected = db.delete(TABLE_RESERVAS, "numReserva=?", new String[]{String.valueOf(numReserva)});
+        db.close();
+
+        return rowsAffected;
+    }
 }
 
 
