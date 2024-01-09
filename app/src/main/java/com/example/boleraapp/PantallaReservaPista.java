@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class PantallaReservaPista extends AppCompatActivity {
 
 
-    private String[]paises={"Barcelona","Madrid","Bilbao","Vigo","Valladolid","Sevilla","Malaga","Alicante","Leon","Oviedo"};
+    private String[]paises={"Madrid","Barcelona","Bilbao","Vigo","Valladolid","Sevilla","Malaga","Alicante","Leon","Oviedo", "San Sebastian"};
 
     private TextView etuser;
     private ListView listView;

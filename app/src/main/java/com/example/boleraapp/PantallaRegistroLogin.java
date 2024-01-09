@@ -27,14 +27,14 @@ public class PantallaRegistroLogin extends AppCompatActivity {
         DbHelper dbHelper=new DbHelper(PantallaRegistroLogin.this);
 
         SQLiteDatabase db=dbHelper.getWritableDatabase();
-
-        if (db!=null){
-            Toast notificacion=Toast.makeText(this,"BBDD creada correctamente",Toast.LENGTH_LONG);
-            notificacion.show();
-        } else {
-            Toast notificacion=Toast.makeText(this,"BBDD no pudo ser creada",Toast.LENGTH_LONG);
-            notificacion.show();
-        }
+//Comprobacion para ver si se crea la bbdd se deja comentado.
+//        if (db!=null){
+//            Toast notificacion=Toast.makeText(this,"BBDD creada correctamente",Toast.LENGTH_LONG);
+//            notificacion.show();
+//        } else {
+//            Toast notificacion=Toast.makeText(this,"BBDD no pudo ser creada",Toast.LENGTH_LONG);
+//            notificacion.show();
+//        }
     }
 
     public void login(View view){

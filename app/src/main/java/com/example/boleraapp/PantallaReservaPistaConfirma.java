@@ -54,7 +54,7 @@ public class PantallaReservaPistaConfirma extends AppCompatActivity {
 
         textViewDate.setText("Fecha:    " + fecha);
         textViewHora.setText("Hora:   " + hora);
-        textViewPersonas.setText("Num. Personas:        " + numPersonas + " " + usuarioActual);
+        textViewPersonas.setText("Num. Personas:        " + numPersonas);
 
     }
 

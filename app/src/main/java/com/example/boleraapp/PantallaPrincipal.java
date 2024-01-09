@@ -18,7 +18,6 @@ public class PantallaPrincipal extends AppCompatActivity {
 
     Button btreservar;
     MediaPlayer mediaPlayer;
-    private TextView usuario;
 
     private String fecha, hora;
     private int numPersonas;
@@ -30,14 +29,12 @@ public class PantallaPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_principal);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        usuario=findViewById(R.id.usuario);
+
         btreservar=findViewById(R.id.btreservar);
         iniciarReproduccion();
 
         String usuarioActual = SessionManager.getInstance().getCurrentUsuario();
 
-        //Mostrar nombre de usuario en el textView
-        usuario.setText("Hola " + usuarioActual + " ya puedes realizar tu reserva.");
     }
 
 
@@ -84,6 +81,12 @@ public class PantallaPrincipal extends AppCompatActivity {
         } else if (id == R.id.localizacion) {
 
             Intent intent = new Intent(this, MapaGoogle.class);
+
+            startActivity(intent);
+
+        }else if (id == R.id.cerrarSesion) {
+
+            Intent intent = new Intent(this, PantallaRegistroLogin.class);
 
             startActivity(intent);
 
