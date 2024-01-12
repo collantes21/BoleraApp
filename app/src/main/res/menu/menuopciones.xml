@@ -4,7 +4,8 @@
 
     <item
         android:id="@+id/localizacion"
-        android:title="Localizacion" />
+        android:title="Localizacion"
+        android:visible="true" />
     <item
         android:id="@+id/historial"
         android:title="Gestionar Reservas" />
